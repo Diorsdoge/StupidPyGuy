@@ -14,7 +14,7 @@ cv2.nameWindow('image', cv2.WINDOW_NORMAL)
 # 显示图像
 cv2.imshow('image', img)
 # cv2.waiKey(0)
-k = cv2.waiKey(0)
+k = cv2.waitKey(0)
 if k == 27:	# wait for ESC key to exit
 	cv2.destroyAllWindows() # 删除所有窗口，删除自定窗口使用cv2.destroyWindow(windowname)
 elif k == ord('s') # wait for 's' key to save and exit
