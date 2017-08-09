@@ -65,6 +65,40 @@ print fib.next() # 1
 print fib.next() # 2
 print [fib.next() for i in range(10)] # [3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 
+# tokenize模块将在文本之外生成令牌，并且针对每个处理过的行返回一个迭代器
+import tokenize
+reader = open('amina.py').next
+tokens = tokenize.generate_tokens(reader)
+print tokens.next() # (1, 'from', (1, 0), (1, 4), 'from amina.quality import similarities\n')
+print tokens.next() # (1, 'amina', (1, 5), (1, 10), 'from amina.quality import similarities\n')
+print tokens.next()
+
+def power(values):
+	for value in values:
+		print 'powering %s' % value
+		yield value
+def adder(values):
+	for value in values:
+		print 'adding to %s' % value
+		if value % 2 == 0:
+			yield value + 3
+		else:
+			yield value + 2
+elements = [1, 4, 7, 9, 12, 19]
+res = adder(power(elements))
+print res.next # powering 1 adding to 1 3
+print res.next # powering 4 adding to 4 7
+print res.next # powering 7 adding to 7 9
+
+
+
+
+
+
+
+
+
+
 
 
 
