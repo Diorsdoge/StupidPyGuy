@@ -54,6 +54,17 @@ print i.next()	# 'c'
  for e1 in MyIterator(4):
  	print e1 # 3 2 1 0
  		
+# 迭代器
+def fibonacci():
+	a, b = 0, 1
+	while True:
+		yield b
+		a, b = b, a + b
+fib = fibonacci()
+print fib.next() # 1
+print fib.next() # 2
+print [fib.next() for i in range(10)] # [3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
+
 
 
 
