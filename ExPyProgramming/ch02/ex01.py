@@ -86,9 +86,42 @@ def adder(values):
 			yield value + 2
 elements = [1, 4, 7, 9, 12, 19]
 res = adder(power(elements))
-print res.next # powering 1 adding to 1 3
-print res.next # powering 4 adding to 4 7
-print res.next # powering 7 adding to 7 9
+print res.next() # powering 1 adding to 1 3
+print res.next() # powering 4 adding to 4 7
+print res.next() # powering 7 adding to 7 9
+
+def psychologist():
+	print 'Please tell me your problem'
+	while True:
+		answer = (yield)
+		if answer is not None:
+			if answer.endswith('?'):
+				print ("Don't ask yourself too much questions")
+			elif 'good' in answer:
+				print "A that's good, go on"
+			elif 'bad' in answer:
+				print "Don't be so negative"
+free = psychologist()
+free.next()    # Please tell me you problem
+free.send('I feel bad') # Don't be so negative
+free.send("why I sholdn't ?") # Don't ask yourself too much questions
+free.send("Ok then i should find what is good for me") # A that's good, go on
+
+def my_generator():
+	try:
+		yield 'something'
+	except ValueError:
+		yield 'dealing with the exception'
+	finally:
+		print "ok let's clean"
+gen = my_generator()
+gen.next()   #'something'
+gen.throw(ValueError('mean mean mean')) # 'dealing with the exception'
+gen.close() # ok let' clean
+gen.next() # Traceback (...)
+
+
+
 
 
 
