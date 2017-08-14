@@ -5,3 +5,5 @@
 - **08月04日**： sorted()
 - **08月05日**： abs(),filter()
 - **08月07日**： enumberate()
+- **08月14日**： dir(),getattr(),setattr(),hasattr(),delattr()
+- 
